@@ -17,11 +17,11 @@ int main() {
 
     // test case 3
     int array3[3] = {2,2,2};
-    std::cout << "The number is: " << count(array3, 5) << std::endl;
+    std::cout << "The number is: " << count(array3, 3) << std::endl;
     
 
     // test case 4
     int array4[4] = {0,0,0,0};
-    std::cout << "The number is: " << count(array4, 5) << std::endl;
+    std::cout << "The number is: " << count(array4, 4) << std::endl;
     return 0;
 }
