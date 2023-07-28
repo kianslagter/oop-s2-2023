@@ -9,8 +9,8 @@ double weighted_average(int array[], int n) {
 
   for (int i = 0; i < n; i++) {
     double val = std::count(array, array + n, array[i]);
-    sum += array[i] * (val / n);
+    sum += array[i] * val / n;
   }
 
-  return (sum / n);
+  return sum;
 }
