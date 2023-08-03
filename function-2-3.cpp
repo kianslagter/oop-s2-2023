@@ -25,10 +25,11 @@ bool is_palindrome(int integers[], int length) {
 
 int sum_if_palindrome(int integers[], int length) {
   if (length <= 0)return false;
-  
+
   if (is_palindrome(integers, length) == 1) {
     return sum_array_elements(integers, length);
   } else {
     return -2;
   }
+  return 0;
 }
