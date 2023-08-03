@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <math.h>
 
 int binary_to_int(int binary[], int n) {
