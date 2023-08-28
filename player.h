@@ -30,8 +30,4 @@ class Player {
 
   void setHealth(int newHealth) { health = newHealth; }
 
-  int getMana() {
-    cout << "Player does not have mana" << endl;
-    return -1;
-  }
 };
