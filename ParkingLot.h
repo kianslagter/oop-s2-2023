@@ -1,41 +1,38 @@
 #pragma once
 #include <iostream>
+#include <vector>
 
 #include "Vehicle.h"
+using namespace std;
 
 class ParkingLot {
  private:
-  int maxVehicles;
+  int maxCapacity;
   int vehicleCount;
-  Vehicle* vehicles;
+  vector<Vehicle*> vehicles;
 
  public:
-  ParkingLot() : ParkingLot(1) {}
+  ParkingLot(int maxCapacity) : maxCapacity(maxCapacity), vehicleCount(0) {}
 
-  ParkingLot(int maxVehicles) : maxVehicles(maxVehicles) {
-    vehicles = new Vehicle[maxVehicles];
-  }
   int getCount() { return vehicleCount; }
-  void parkVehicle(Vehicle vehicle) {
-    if (vehicleCount <= maxVehicles) {
-      vehicles[vehicleCount] = vehicle;
-      vehicleCount++;
-    } else {
-      std::cout << "The lot is full" << std::endl;
+
+  void parkVehicle(Vehicle* vehicle) {
+    if (vehicleCount == maxCapacity) {
+      cout << "The lot is full" << endl;
+      return;
     }
+    vehicles.push_back(vehicle);
+    vehicleCount++;
   }
+
   void unparkVehicle(int ID) {
-    int index = 0;
     for (int i = 0; i < vehicleCount; i++) {
-      if (vehicles[i].getID() == ID) {
-        index = i;
-      } else {
-        std::cout << "Vehicle not in the lot" << std::endl;
+      if (vehicles[i]->getID() == ID) {
+        vehicles.erase(vehicles.begin() + i);
+        vehicleCount--;
+        return;
       }
-      for (int i = index; i < vehicleCount - 1; i++) {
-        vehicles[i] = vehicles[i + 1];
-      }
-      vehicleCount--;
     }
+    cout << "Vehicle not in the lot" << endl;
   }
 };
