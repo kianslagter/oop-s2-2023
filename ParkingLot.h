@@ -35,4 +35,14 @@ class ParkingLot {
     }
     cout << "Vehicle not in the lot" << endl;
   }
+
+  int countOverstayingVehicles(int maxParkingDuration) {
+    int count = 0;
+    for (int i = 0; i < vehicleCount; i++) {
+      if (vehicles[i]->getParkingDuration() > maxParkingDuration) {
+        count++;
+      }
+    }
+    return count;
+  }
 };
