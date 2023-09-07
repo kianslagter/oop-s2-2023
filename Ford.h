@@ -12,11 +12,14 @@ class Ford : public Car {
     Ford(int badgeNumber, int price) : badgeNumber(badgeNumber), Car(price), litresOfFuel(60) {};
     
     void drive(int kms){
-        while (litresOfFuel > 0){
-            set_emissions(0.234 * kms);
-            litresOfFuel = litresOfFuel - (kms/5);
-        }
-    };
+        int distance = 0;
+        while (litresOfFuel > 0 && distance < kms){
+            int e = get_emissions();
+            set_emissions(e + 0.234);
+            litresOfFuel = litresOfFuel - 0.2;
+            distance++;
+    }
+    }
 
     void refuel(int litres){
         if (litresOfFuel + litres >= 60){

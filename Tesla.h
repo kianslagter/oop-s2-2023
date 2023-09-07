@@ -12,10 +12,13 @@ class Tesla : public Car {
     Tesla(char model, int price) : model(model), Car(price), batteryPercentage(100) {};
     
     void drive(int kms){
-        while(batteryPercentage > 0){
-            set_emissions(0.074 * kms);
-            batteryPercentage = batteryPercentage - (kms/5);
-        }
+        int distance = 0;
+        while (batteryPercentage > 0 && distance < kms){
+        
+            int e = get_emissions();
+            set_emissions(e + 0.074);
+            batteryPercentage = batteryPercentage - 0.2;
+    }
     };
 
     void chargeBattery(int mins){
