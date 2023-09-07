@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <cmath>
 #include "Car.h"
 using namespace std;
 
@@ -13,8 +14,8 @@ class Ford : public Car {
     
     void drive(int kms){
         int distance = 0;
+        int e = 0;
         while (litresOfFuel > 0 && distance < kms){
-            int e = get_emissions();
             set_emissions(e + 0.234);
             litresOfFuel = litresOfFuel - 0.2;
             distance++;
@@ -52,7 +53,8 @@ class Ford : public Car {
     }
 
     float get_litresOfFuel(){
-        return litresOfFuel;
+        float roundFuel = round(litresOfFuel * 10) / 10;
+        return roundFuel;
     }
 
 };
