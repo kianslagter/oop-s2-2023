@@ -53,7 +53,13 @@ class Ford : public Car {
     }
 
     float get_litresOfFuel(){
-        float roundFuel = round(litresOfFuel * 10) / 10;
+        float roundFuel = 0; 
+        if(litresOfFuel < 0){
+            roundFuel = 0;
+        }
+        else{
+            (litresOfFuel * 10) / 10;
+        }
         return roundFuel;
     }
 
