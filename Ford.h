@@ -58,7 +58,7 @@ class Ford : public Car {
             roundFuel = 0;
         }
         else{
-            (litresOfFuel * 10) / 10;
+           roundFuel = (litresOfFuel * 10) / 10;
         }
         return roundFuel;
     }
