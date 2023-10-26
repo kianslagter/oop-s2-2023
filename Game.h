@@ -1,6 +1,7 @@
 #pragma once
 #include <tuple>
 #include <vector>
+#include <iostream>
 
 #include "Cell.h"
 #include "Character.h"
